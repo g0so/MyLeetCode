@@ -3,12 +3,14 @@
 #include <unordered_map>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    bool containsDuplicate(vector<int>& nums) {
+    bool containsDuplicate(vector<int> &nums)
+    {
         // TODO: Implement your logic here
         unordered_map<int, int> mp;
-        
+
         for (int i = 0; i < nums.size(); i++)
         {
             if (mp.find(nums[i]) != mp.end())
@@ -19,7 +21,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Solution sol;
 
     int n;
@@ -29,13 +32,14 @@ int main() {
     vector<int> nums(n);
 
     cout << "Enter the elements: ";
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> nums[i];
     }
 
     bool result = sol.containsDuplicate(nums);
 
-    if(result)
+    if (result)
         cout << "True (Duplicate exists)" << endl;
     else
         cout << "False (No duplicates)" << endl;
