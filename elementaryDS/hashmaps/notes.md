@@ -5,6 +5,8 @@ This allows for highly efficient insertion, deletion, and lookup operations (Avg
 It uses a hash function to compute an index into an array of buckets, determining where a value should be stored based on it's key. <br>
 It's known as a dictionary in python. <br>
 They're immutable to ensure that the hashvalue doesn't change <br>
+
+# LeetCode: (Easy Level)
 ## Example: Two Sum
 Link: [Two Sum] (https://leetcode.com/problems/two-sum/)
 
@@ -42,3 +44,38 @@ There are two cases, <br>
     then find() returns mp.end(). <br>
 The if statement in words: "If the iterator returned by find() is NOT the special end() marker" <br> 
 ---------------------------------------------------------------------------------------------------------
+
+## Example : Contains Duplicate (Leetcode 217)
+https://leetcode.com/problems/contains-duplicate/description/
+
+Problem : You are given an array with numbers. <br>
+Goal : return true if duplicates exist, else false. <br>
+
+The solution is same as the last problem. <br>
+
+## Example : Valid Anagram
+https://leetcode.come/problems/valid-anagram
+
+Problem: You are given two strings s and t <br>
+Goal : return true if t is an anagram of s, and false otherwise <br>
+
+What's an Anagram? <br>
+Same no of letters, same frequency of letters, order does not matter. <br>
+
+### Approach : Use Hashmap
+1. Count all the characters in s in the freq array. <br>
+2. Subract all the characters in t in the freq array. <br>
+3. if the count of some character is less than 0 then return false; base case -> return true; <br>
+# LeetCode (Medium Level)
+## Group Anagrams (49)
+https://leetcode.com/problems/group-anagrams/description/
+
+Given: string array <br>
+Goal: Group the anagrams together in any order <br>
+Input: strs = ["eat","tea","tan","ate","nat","bat"] <br>
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]] <br>
+
+Approach: <br>
+1. Create a hashmap (unordered_map<string, vector<string>> mp) (key is the sorted word, values are the grouped anagrams)<br>
+2. Sort each word in the array using for loop. <br>
+3. Push the string into the hashmap. <br>
