@@ -9,3 +9,6 @@ Read notes before you check out the problem. <br>
 This is an unfinished project, so it's not recommended to read it yet. <br>
 Who's gonna find it tho? LMAO. <br>
 If the notes aren't enough just ask an AI for explanation in depth. <br>
+
+# Order of learning this material:
+1. Elementary DS: Hashmaps, Two Pointers, Arrays 

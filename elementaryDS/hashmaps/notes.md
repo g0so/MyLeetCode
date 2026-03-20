@@ -7,7 +7,7 @@ It's known as a dictionary in python. <br>
 They're immutable to ensure that the hashvalue doesn't change <br>
 
 # LeetCode: (Easy Level)
-## Example: Two Sum
+## 1. Two Sum
 Link: [Two Sum] (https://leetcode.com/problems/two-sum/)
 
 Given an array of intergers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -45,7 +45,7 @@ There are two cases, <br>
 The if statement in words: "If the iterator returned by find() is NOT the special end() marker" <br> 
 ---------------------------------------------------------------------------------------------------------
 
-## Example : Contains Duplicate (Leetcode 217)
+## 2. Contains Duplicate (Leetcode 217)
 https://leetcode.com/problems/contains-duplicate/description/
 
 Problem : You are given an array with numbers. <br>
@@ -53,7 +53,7 @@ Goal : return true if duplicates exist, else false. <br>
 
 The solution is same as the last problem. <br>
 
-## Example : Valid Anagram
+## 3. Valid Anagram
 https://leetcode.come/problems/valid-anagram
 
 Problem: You are given two strings s and t <br>
