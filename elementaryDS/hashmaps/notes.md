@@ -58,7 +58,7 @@ If element already in set -> return true <br>
 else insert into set <br>
 
 ## 3. Valid Anagram
-https://leetcode.come/problems/valid-anagram
+https://leetcode.com/problems/valid-anagram
 
 Problem: You are given two strings s and t <br>
 Goal : return true if t is an anagram of s, and false otherwise <br>
@@ -85,6 +85,7 @@ Approach: <br>
 3. Push the string into the hashmap. <br>
 
 ## 2. Longest Substring without repeating characters
+https://leetcode.com/problems/longest-substring-without-repeating-characters/ <br>
 Pattern: Hashmap + Sliding Window (Check twoPointers folder before this). <br>
 ### Approach: 
 Use a hashmap to store the last seen index of each character. <br>
@@ -99,3 +100,64 @@ If a duplicate character is found within the current window, move left pointer d
     map[current] = right;<br>
 5. Update maxLength <br>
     maxLength = max(maxLength, right - left + 1)<br>
+
+## 3. Three Sum
+We've done Two Sum before. <br>
+The idea there was: fix one number -> find another using hashmap. <br>
+
+Now what if we have three numbers that sum to zero? <br>
+Before reading further, try to think how you can reduce this problem. <br>
+
+Solution:
+
+Fix one number, then solve Two Sum on the remaining array. <br>
+
+nums[i] + nums[left] + nums[right] = 0  
+→ nums[left] + nums[right] = -nums[i]
+Problem with Hashmap:
+
+If we use hashmap for every i, it leads to duplicate triplets and becomes messy to handle. <br>
+
+Key Insight:
+
+Sort the array first. <br>
+
+Why? <br>
+
+Helps avoid duplicates <br>
+Enables two pointer approach instead of hashmap <br>
+Approach:
+
+After sorting, fix i, then: <br>
+
+left = i + 1  
+right = n - 1  
+
+Now calculate: <br>
+
+sum = nums[i] + nums[left] + nums[right]
+Cases:
+sum == 0 -> triplet found <br>
+sum < 0 -> move left++ <br>
+sum > 0 -> move right-- <br>
+Handling Duplicates:
+
+Skip duplicate i values: <br>
+
+if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+After finding a valid triplet: <br>
+
+while (left < right && nums[left] == nums[left + 1]) left++;
+while (left < right && nums[right] == nums[right - 1]) right--;
+
+Then move both pointers: <br>
+
+left++;
+right--;
+Complexity:
+
+Sorting -> O(n log n) <br>
+Two pointers -> O(n²) <br>
+
+Final: O(n²) <br>
