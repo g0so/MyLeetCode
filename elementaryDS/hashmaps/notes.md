@@ -1,10 +1,10 @@
 # What's a hashmap?
 
 A Hash map or a hash table is a data structure that stores data in key-value pairs. <br>
-This allows for highly efficient insertion, deletion, and lookup operations (Avg time complexity: 1) <br>
+This allows for highly efficient insertion, deletion, and lookup operations (Avg time complexity: O(1); Worst Case : O(n) - due to collisions) <br>
 It uses a hash function to compute an index into an array of buckets, determining where a value should be stored based on it's key. <br>
 It's known as a dictionary in python. <br>
-They're immutable to ensure that the hashvalue doesn't change <br>
+Keys in a hashmap must be immutable (in most langauges), the hasmap itself is mutable <br>
 
 # LeetCode: (Easy Level)
 ## 1. Two Sum
@@ -51,7 +51,11 @@ https://leetcode.com/problems/contains-duplicate/description/
 Problem : You are given an array with numbers. <br>
 Goal : return true if duplicates exist, else false. <br>
 
-The solution is same as the last problem. <br>
+Using a set is better than a hasmap for this <br>
+Just check if element already exists <br>
+
+If element already in set -> return true <br>
+else insert into set <br>
 
 ## 3. Valid Anagram
 https://leetcode.come/problems/valid-anagram
@@ -67,7 +71,7 @@ Same no of letters, same frequency of letters, order does not matter. <br>
 2. Subract all the characters in t in the freq array. <br>
 3. if the count of some character is less than 0 then return false; base case -> return true; <br>
 # LeetCode (Medium Level)
-## Group Anagrams (49)
+## 1. Group Anagrams (49)
 https://leetcode.com/problems/group-anagrams/description/
 
 Given: string array <br>
@@ -79,3 +83,19 @@ Approach: <br>
 1. Create a hashmap (unordered_map<string, vector<string>> mp) (key is the sorted word, values are the grouped anagrams)<br>
 2. Sort each word in the array using for loop. <br>
 3. Push the string into the hashmap. <br>
+
+## 2. Longest Substring without repeating characters
+Pattern: Hashmap + Sliding Window (Check twoPointers folder before this). <br>
+### Approach: 
+Use a hashmap to store the last seen index of each character. <br>
+Expand the window using a right pointer (for loop) <br>
+If a duplicate character is found within the current window, move left pointer directly to lastSeenIndex + 1; <br>
+### Steps: 
+1. Initialize left  = maxLength = 0; & map<char, int> to store the lastSeen Index. <br>
+2. Iterate right <br>
+3. If s[right] exists in map and map[s[right]] >= left (in the code s[right] = current). <br>
+    move left = map[current] + 1;<br>
+4. Update Hashmap <br>
+    map[current] = right;<br>
+5. Update maxLength <br>
+    maxLength = max(maxLength, right - left + 1)<br>
