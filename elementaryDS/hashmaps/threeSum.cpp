@@ -3,10 +3,10 @@
 #include <vector>
 using namespace std;
 
-vector<int> threeSum(vector<int> nums)
+vector<vector<int>> threeSum(vector<int> nums)
 {
     sort(nums.begin(), nums.end());
-    vector<int> result;
+    vector<vector<int>> result;
     int n = nums.size();
 
     for (int i = 0; i < n; i++)
@@ -34,14 +34,17 @@ vector<int> threeSum(vector<int> nums)
             else
                 right--;
         }
-        return result;
     }
+    return result;
 }
 
 int main(void)
 {
     vector<int> nums = {-1, 0, 1, 2, -1, 4};
-    vector<int> result = threeSum(nums);
-    for (auto const element : result)
-        cout << element << " ";
+    vector<vector<int>> result = threeSum(nums);
+    for (auto const triplet : result) {
+        for (auto const element : triplet)
+            cout << element << " ";
+        cout << "\n";
+    }
 }
